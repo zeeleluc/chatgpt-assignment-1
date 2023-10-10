@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
         v.cpus = 1
         v.linked_clone = false
     end
-    config.vm.synced_folder ".", "/var/www", type: "nfs"
+    config.vm.synced_folder ".", "/var/www", mount_options: ["rw", "tcp", "nolock", "noacl", "async"], type: "nfs", nfs_udp: false
 
     config.vm.define "chatgpt-assignment-1"
     config.vm.hostname = "chatgpt-assignment-1"
