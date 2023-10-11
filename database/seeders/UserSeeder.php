@@ -12,7 +12,6 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         ForeignKey::disable();
-
         User::truncate();
 
         User::factory()->create([
@@ -26,5 +25,7 @@ class UserSeeder extends Seeder
             'email' => 'jane@example.com',
             'password' => Hash::make('secret'),
         ]);
+
+        ForeignKey::enable();
     }
 }
