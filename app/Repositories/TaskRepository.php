@@ -22,7 +22,9 @@ class TaskRepository
      */
     public function getAllForUser(User $user): Collection
     {
-        return Task::where('user_id', $user->id)->get();
+        return Task::where('user_id', $user->id)
+            ->orderByDesc('id')
+            ->get();
     }
 
     public function getTaskById($taskId): Task

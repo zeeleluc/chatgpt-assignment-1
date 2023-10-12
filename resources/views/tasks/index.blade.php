@@ -6,11 +6,28 @@
     </x-slot>
 
     <div class="py-12">
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <table class="table">
+                    <x-alert-success :alert="session('success')" />
+                    <x-alert-error :alert="session('error')" />
+
+                    <div class="sm:col-span-4">
+                        <x-link-button href="{{ route('tasks.create') }}">
+                            {{ __('Create Task') }}
+                        </x-link-button>
+                    </div>
+
+                    <table class="table-auto">
+                        <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </thead>
                         <tbody>
                         @foreach($tasks as $task)
                             <tr>
